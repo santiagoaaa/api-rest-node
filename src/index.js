@@ -5,7 +5,7 @@ const morgan = require('morgan');
 //middlewares -> funciones que se ejecutan antes de llegar a las rutas
 app.use(morgan('dev'));
 app.use(express.json()); //
-app.use(express.urlencoded({ extended: false })); //con extended false no permito recibir imagenes
+app.use(express.urlencoded({ extended: true })); //con extended false no permito recibir imagenes
 
 //rutas
 app.use(require('./routes/index'));

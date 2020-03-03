@@ -35,12 +35,18 @@ const {
     updateCommentActivity
 } = require('../controller/commentActivity.controller');
 
+const { login, rutasProtegidas } = require('../controller/login.controller');
+
+
+//Login
+router.post('/login', login);
+
 //Rutas usuario
-router.get('/users', getUsers);
-router.get('/users/:id', getUserById);
-router.post('/users', createUser);
-router.delete('/users/:id', deleteUser);
-router.put('/users/:id', updateUser);
+router.get('/users', rutasProtegidas, getUsers);
+router.get('/users/:id', rutasProtegidas, getUserById);
+router.post('/users', rutasProtegidas, createUser);
+router.delete('/users/:id', rutasProtegidas, deleteUser);
+router.put('/users/:id', rutasProtegidas, updateUser);
 
 //Rutas UserType
 router.get('/userType', getUserType);
